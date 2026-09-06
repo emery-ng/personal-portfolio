@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Source / working files not needed on the site
+MinhAnh-Emery-portrait copy.jpg
+*.alias
+scratchpad/
+
+# Working docs (not site content)
+Portfolio-content.docx

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minh Anh Nguyen — Business analytics & AI</title>
+  <meta name="description" content="Minh Anh Nguyen — business analytics & AI. Finding the patterns businesses miss, and working with AI critically.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="projects.html">Projects</a>
+        <a href="#about">About</a>
+        <a href="resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div class="hero__left">
+          <div class="hero__identity">
+            <img class="hero__avatar" src="images/portrait-sm.jpg" alt="Minh Anh Nguyen" width="44" height="44">
+            <p class="hero__kicker">Minh Anh Nguyen</p>
+          </div>
+          <h1 class="hero__headline">I find the patterns businesses miss.</h1>
+          <p class="hero__bridge">Like this one — hiding in a restaurant's own sales data —</p>
+          <p class="hero__creds">AI &amp; Business analytics · USF · May 2027</p>
+        </div>
+
+        <div class="hero__right">
+          <div class="chart-card">
+            <p class="chart-card__eyebrow">Try it yourself</p>
+            <p class="chart-card__setup">Which weather variable actually predicts lobster roll sales?</p>
+            <div class="toggles" role="group" aria-label="Weather variable">
+              <button class="toggle" data-key="temperature" type="button">Temp</button>
+              <button class="toggle is-active" data-key="humidity" type="button">Humidity</button>
+              <button class="toggle" data-key="rainfall" type="button">Rainfall</button>
+            </div>
+            <div class="chart-holder">
+              <canvas id="heroChart" aria-label="Bar chart: average lobster rolls sold per day by weather band"></canvas>
+            </div>
+            <p class="chart-card__finding" id="chartFinding"></p>
+            <p class="chart-card__close">
+              <a href="projects/weather-sales.html">Humidity shows a clear drop-off — full story →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured work -->
+  <section id="work">
+    <div class="wrap">
+      <p class="eyebrow">Featured work</p>
+      <div class="cards">
+        <a class="card" href="projects/weather-sales.html">
+          <h3 class="card__title">Weather-Sales Prediction ↑</h3>
+          <p class="card__desc">That's the finding above — see how it was built and adopted by the client →</p>
+          <span class="badge badge--navy">Client-adopted</span>
+        </a>
+        <a class="card" href="projects/datagen.html">
+          <h3 class="card__title">Synthetic Data Generator</h3>
+          <p class="card__desc">Built and reviewed with Claude Code for realistic app test data →</p>
+          <span class="badge badge--steel">AI-critical</span>
+        </a>
+      </div>
+      <p class="see-all"><a href="projects.html">See all projects →</a></p>
+    </div>
+  </section>
+
+  <!-- What I work on -->
+  <section id="what-i-do">
+    <div class="wrap">
+      <h2 class="section-title">What I work on</h2>
+      <div class="capabilities">
+        <div class="capability">
+          <h3>Finding patterns in the data</h3>
+          <p>Testing what actually drives the numbers, not just what seems obvious.</p>
+        </div>
+        <div class="capability">
+          <h3>From models to apps to websites</h3>
+          <p>Predictive models, a mobile app, and deployed websites — building whatever the problem actually calls for.</p>
+        </div>
+        <div class="capability">
+          <h3>Databases &amp; SQL</h3>
+          <p>Designing schemas and writing SQL queries that turn raw data into something usable.</p>
+        </div>
+        <div class="capability">
+          <h3>AI &amp; human behavior research</h3>
+          <p>Conducting research on how AI subtly influences human decision-making, through experimental work at USF's Behavioral AI Lab.</p>
+        </div>
+        <div class="capability">
+          <h3>Working with AI, critically</h3>
+          <p>Hands-on with AI tools, but verifying and debugging rather than trusting outputs at face value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & tools -->
+  <section id="skills">
+    <div class="wrap skills">
+      <h2 class="section-title">Skills &amp; tools</h2>
+      <dl>
+        <dt>Software tools</dt>
+        <dd>Tableau, Power BI, Excel, Microsoft Office 365, MySQL, PostgreSQL, DBeaver, R Studio, Claude Code</dd>
+        <dt>Programming &amp; web development</dt>
+        <dd>Python, R, JavaScript, HTML, CSS</dd>
+        <dt>Certificates</dt>
+        <dd>Google Data Analytics Certification, Microsoft Power BI Data Analyst Associate</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap about">
+      <h2 class="section-title">About me</h2>
+      <div class="about__grid">
+        <img class="about__portrait" src="images/portrait.jpg" alt="Portrait of Minh Anh Nguyen" width="200" height="200">
+        <div class="about__text">
+          <p>
+            I'm an AI &amp; Business Analytics major at USF's Muma College of Business and a member of the
+            Judy Genshaft Honors College, graduating May 2027. My work sits between the business question and
+            the data — pulling messy records together, testing what really drives an outcome, and building the
+            model, app, or dashboard that puts the answer to use.
+          </p>
+          <p>
+            Outside of client and research work, I lead the marketing team for USF's Data Science Club —
+            managing a team and driving outreach for the organization.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:nguyenminhanh2307@gmail.com">nguyenminhanh2307@gmail.com</a> · <a href="resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+    /* --------------------------------------------------------------------
+       Hero chart data.
+
+       Each array is a list of [x, y] pairs: the weather reading on x,
+       lobster rolls sold that day on y. One point per open day, five
+       summers (2022-2026) at the Ft. Williams location. The chart groups
+       these days into weather bands and shows the average sales per band.
+       To update with fresh data, just replace the numbers below — the
+       banding and averaging happen automatically.
+       -------------------------------------------------------------------- */
+    const temperatureData = [[67.0,401], [68.0,505], [68.6,537], [69.4,341], [63.6,324], [71.4,270], [61.8,346], [65.7,313], [63.7,416], [65.0,336], [66.5,281], [68.7,294], [65.0,320], [68.0,306], [64.4,403], [64.7,457], [65.4,280], [75.5,311], [67.2,302], [69.7,290], [71.5,360], [69.1,433], [71.2,376], [70.9,259], [66.2,288], [66.6,322], [66.9,268], [72.8,323], [72.7,466], [68.6,371], [69.5,339], [69.0,343], [67.4,263], [71.2,276], [69.3,322], [68.7,409], [76.7,373], [73.4,297], [73.5,330], [65.7,297], [67.6,329], [69.4,313], [66.9,471], [68.2,425], [64.4,392], [64.8,362], [67.5,159], [68.1,253], [74.4,339], [67.1,385], [67.6,394], [65.1,288], [68.6,349], [66.0,338], [66.9,323], [66.8,259], [66.8,406], [66.7,406], [69.8,290], [71.4,270], [71.5,223], [68.2,416], [64.9,210], [70.6,401], [72.4,197], [78.7,297], [76.3,339], [75.1,304], [69.9,329], [69.1,262], [65.9,104], [76.7,275], [82.8,220], [73.8,275], [73.6,252], [73.4,395], [70.1,149], [80.0,312], [73.4,269], [78.9,266], [76.9,286], [68.9,327], [72.9,396], [79.0,402], [77.5,257], [76.1,263], [81.3,298], [76.5,209], [80.2,322], [75.7,349], [72.5,433], [73.7,346], [70.6,278], [70.0,228], [70.6,244], [67.5,190], [72.9,377], [79.4,397], [66.5,300], [69.5,79], [77.4,319], [76.8,264], [75.6,349], [73.1,446], [75.1,292], [78.2,332], [67.2,216], [70.6,317], [69.1,218], [70.4,110], [71.4,452], [77.5,418], [79.1,300], [74.0,285], [70.1,293], [72.0,315], [66.3,132], [74.9,386], [70.2,384], [68.5,249], [69.2,207], [72.0,109], [67.6,247], [74.8,251], [77.6,297], [74.1,356], [71.7,410], [71.3,410], [72.8,507], [75.6,420], [70.7,270], [78.7,196], [76.6,210], [77.0,266], [77.1,299], [76.3,312], [79.6,367], [78.8,267], [84.9,288], [79.1,219], [79.3,290], [74.5,331], [77.2,405], [74.4,399], [72.9,351], [70.3,228], [69.2,252], [71.5,290], [78.5,386], [76.8,457], [74.5,392], [66.6,236], [73.9,252], [73.4,229], [81.6,264], [80.5,346], [76.2,386], [76.9,288], [77.9,293], [66.9,287], [69.4,296], [69.0,354], [70.8,185], [82.6,472], [75.6,458], [73.4,341], [77.5,291], [75.6,318], [68.5,204], [68.8,365], [69.3,457], [69.3,342], [68.9,291], [66.6,233], [66.4,335], [67.2,348], [70.9,404], [73.2,503], [72.4,398], [69.1,322], [69.6,297], [79.6,224], [67.5,303], [65.3,453], [68.4,560], [74.8,313], [80.1,269], [74.3,405], [74.2,476], [75.5,594], [83.5,419], [79.4,319], [75.4,240], [67.6,299], [63.2,287], [67.5,400], [68.0,450], [68.6,435], [71.0,331], [75.7,304], [73.1,252], [76.2,285], [77.4,396], [73.5,498], [74.4,389], [71.6,355], [70.3,293], [72.1,292], [79.1,311], [83.7,346], [76.9,538], [67.5,301], [74.0,443], [86.9,345], [76.1,284], [68.3,213], [69.1,393], [71.7,434], [75.0,429], [75.8,382], [70.5,354], [69.2,321], [73.4,312], [75.3,421], [71.6,493], [74.2,525], [79.4,357], [82.9,291], [79.1,331], [77.2,301], [73.7,456], [73.5,432], [77.1,487], [68.0,347], [65.2,286], [64.3,322], [65.2,368], [77.1,431], [74.8,577], [71.6,458], [69.3,297], [75.3,318], [67.6,224], [68.0,298], [67.4,282], [67.8,492], [68.4,597], [76.1,256], [89.2,274], [88.4,423], [84.0,396], [73.6,429], [65.7,325], [63.1,231], [69.4,275], [79.0,276], [81.4,342], [76.6,461], [75.4,378], [74.7,287], [85.9,247], [83.7,265], [79.7,240], [76.9,365], [69.1,331], [74.3,381], [72.9,311], [67.4,256], [72.1,227], [71.2,353], [69.8,345], [67.0,521], [62.2,409], [67.2,357], [68.1,287], [65.2,272], [68.1,241], [73.4,296], [70.1,437], [73.7,478], [69.8,136], [76.6,339], [71.9,250], [77.8,292], [77.5,338]];
+    const humidityData = [[77.7,401], [79.0,505], [61.3,537], [57.0,341], [84.0,324], [60.7,270], [88.0,346], [82.7,313], [75.7,416], [65.3,336], [73.3,281], [76.0,294], [86.3,320], [67.0,306], [82.0,403], [90.0,457], [92.7,280], [64.3,311], [86.0,302], [87.3,290], [74.3,360], [77.7,433], [80.0,376], [89.0,259], [80.3,288], [80.7,322], [87.0,268], [67.0,323], [59.7,466], [78.7,371], [84.3,339], [89.0,343], [86.3,263], [81.7,276], [94.7,322], [94.0,409], [77.7,373], [87.0,297], [84.7,330], [88.0,297], [93.7,329], [70.3,313], [76.3,471], [76.7,425], [92.0,392], [90.7,362], [75.7,159], [71.7,253], [56.7,339], [85.7,385], [92.0,394], [98.3,288], [87.7,349], [93.7,338], [91.3,323], [94.0,259], [91.3,406], [89.0,406], [84.0,290], [85.7,270], [74.0,223], [86.3,416], [100.0,210], [87.7,401], [92.3,197], [73.3,297], [86.3,339], [73.7,304], [93.3,329], [95.0,262], [98.3,104], [71.3,275], [57.7,220], [83.7,275], [88.3,252], [86.7,395], [100.0,149], [74.7,312], [88.0,269], [70.0,266], [55.3,286], [86.0,327], [75.3,396], [53.3,402], [66.0,257], [78.7,263], [60.0,298], [80.7,209], [69.0,322], [81.7,349], [43.7,433], [52.7,346], [45.0,278], [48.7,228], [67.0,244], [86.0,190], [70.0,377], [37.0,397], [80.3,300], [95.7,79], [52.7,319], [65.0,264], [47.7,349], [63.0,446], [82.0,292], [53.0,332], [88.0,216], [78.0,317], [84.0,218], [89.3,110], [56.7,452], [57.0,418], [67.3,300], [43.3,285], [50.3,293], [59.7,315], [90.0,132], [74.7,386], [71.7,384], [80.3,249], [84.7,207], [85.3,109], [46.0,247], [49.7,251], [41.7,297], [55.3,356], [70.0,410], [87.7,410], [89.3,507], [82.0,420], [90.3,270], [72.3,196], [84.3,210], [81.7,266], [73.3,299], [82.7,312], [57.3,367], [73.3,267], [55.0,288], [68.3,219], [63.7,290], [55.7,331], [51.7,405], [64.3,399], [63.3,351], [87.3,228], [81.3,252], [88.3,290], [42.7,386], [54.7,457], [64.0,392], [90.3,236], [82.7,252], [85.0,229], [72.7,264], [70.3,346], [89.7,386], [82.0,288], [65.7,293], [76.0,287], [61.3,296], [74.0,354], [93.3,185], [54.7,472], [53.7,458], [46.7,341], [48.3,291], [62.0,318], [84.0,204], [78.0,365], [75.0,457], [84.0,342], [96.0,291], [69.7,233], [66.7,335], [67.7,348], [59.0,404], [62.7,503], [72.0,398], [80.3,322], [81.7,297], [54.0,224], [51.3,303], [73.3,453], [79.7,560], [88.0,313], [67.7,269], [76.3,405], [38.7,476], [47.3,594], [57.7,419], [69.0,319], [95.7,240], [92.0,299], [90.0,287], [85.0,400], [92.0,450], [86.0,435], [86.3,331], [95.3,304], [93.0,252], [88.7,285], [35.7,396], [51.3,498], [77.0,389], [36.0,355], [51.0,293], [53.7,292], [57.3,311], [68.3,346], [36.3,538], [83.7,301], [90.3,443], [72.0,345], [68.0,284], [75.7,213], [59.0,393], [53.0,434], [55.7,429], [68.7,382], [56.3,354], [70.7,321], [61.7,312], [52.3,421], [60.0,493], [69.0,525], [68.7,357], [55.7,291], [68.7,331], [77.7,301], [47.0,456], [62.3,432], [72.0,487], [39.0,347], [48.0,286], [64.7,322], [55.7,368], [41.3,431], [59.3,577], [72.3,458], [87.0,297], [36.7,318], [62.3,224], [57.3,298], [73.7,282], [54.3,492], [64.3,597], [88.0,256], [67.3,274], [60.0,423], [53.3,396], [68.0,429], [86.3,325], [88.3,231], [78.7,275], [70.7,276], [56.0,342], [46.0,461], [52.0,378], [65.7,287], [54.7,247], [43.0,265], [43.0,240], [35.7,365], [78.7,331], [38.7,381], [57.3,311], [76.7,256], [87.7,227], [55.3,353], [78.3,345], [87.7,521], [85.7,409], [74.3,357], [92.0,287], [87.7,272], [90.0,241], [71.7,296], [89.3,437], [81.7,478], [96.7,136], [58.3,339], [84.0,250], [84.0,292], [91.3,338]];
+    const rainfallData = [[0,401], [0,505], [0,537], [0,341], [0.04,324], [0,270], [0,346], [0,313], [0,416], [0,336], [0,281], [0,294], [0.01,320], [0,306], [0,403], [0,457], [0.02,280], [0,311], [0,302], [0.01,290], [0,360], [0,433], [0,376], [0.02,259], [0,288], [0,322], [0,268], [0,323], [0,466], [0,371], [0,339], [0,343], [0,263], [0,276], [0.02,322], [0,409], [0.02,373], [0.01,297], [0.01,330], [0.01,297], [0.0,329], [0,313], [0,471], [0,425], [0,392], [0,362], [0.03,159], [0.0,253], [0,339], [0,385], [0,394], [0.01,288], [0,349], [0.0,338], [0,323], [0,259], [0.0,406], [0,406], [0,290], [0,270], [0,223], [0,416], [0.15,210], [0.02,401], [0.01,197], [0,297], [0,339], [0,304], [0,329], [0,262], [0.12,104], [0.0,275], [0,220], [0,275], [0,252], [0,395], [0.08,149], [0.01,312], [0,269], [0.02,266], [0,286], [0,327], [0.01,396], [0,402], [0,257], [0,263], [0,298], [0.0,209], [0,322], [0.04,349], [0,433], [0.02,346], [0.0,278], [0,228], [0,244], [0.02,190], [0,377], [0,397], [0.0,300], [0.84,79], [0,319], [0.0,264], [0,349], [0,446], [0.01,292], [0.0,332], [0.06,216], [0.02,317], [0.02,218], [0.08,110], [0.01,452], [0,418], [0.01,300], [0,285], [0,293], [0,315], [0.24,132], [0.01,386], [0,384], [0,249], [0,207], [0.01,109], [0,247], [0,251], [0,297], [0,356], [0,410], [0,410], [0.06,507], [0.0,420], [0,270], [0,196], [0,210], [0.0,266], [0,299], [0.0,312], [0,367], [0,267], [0,288], [0,219], [0.01,290], [0,331], [0,405], [0,399], [0,351], [0.0,228], [0,252], [0.01,290], [0,386], [0,457], [0,392], [0.02,236], [0,252], [0,229], [0,264], [0.0,346], [0.02,386], [0,288], [0.01,293], [0.0,287], [0,296], [0,354], [0.09,185], [0.0,472], [0,458], [0,341], [0.01,291], [0,318], [0,204], [0,365], [0.0,457], [0.0,342], [0.01,291], [0.01,233], [0.02,335], [0.01,348], [0.0,404], [0,503], [0,398], [0,322], [0,297], [0,224], [0,303], [0,453], [0,560], [0.02,313], [0.0,269], [0.28,405], [0,476], [0,594], [0,419], [0,319], [0.02,240], [0,299], [0.01,287], [0,400], [0,450], [0.0,435], [0,331], [0,304], [0,252], [0.02,285], [0,396], [0,498], [0.0,389], [0,355], [0,293], [0,292], [0,311], [0.03,346], [0,538], [0.14,301], [0,443], [0,345], [0,284], [0.06,213], [0,393], [0,434], [0,429], [0,382], [0,354], [0,321], [0,312], [0,421], [0,493], [0,525], [0,357], [0,291], [0,331], [0.03,301], [0,456], [0,432], [0,487], [0,347], [0,286], [0.01,322], [0,368], [0,431], [0,577], [0,458], [0.0,297], [0,318], [0.02,224], [0,298], [0.05,282], [0.01,492], [0,597], [0,256], [0,274], [0.01,423], [0.03,396], [0,429], [0,325], [0.01,231], [0,275], [0,276], [0.0,342], [0,461], [0,378], [0,287], [0,247], [0,265], [0,240], [0,365], [0.07,331], [0,381], [0,311], [0,256], [0.01,227], [0,353], [0,345], [0,521], [0,409], [0,357], [0,287], [0.01,272], [0.0,241], [0,296], [0,437], [0,478], [0.13,136], [0,339], [0,250], [0,292], [0,338]];
+
+    const STEEL = "#5E7A8C";
+    const NAVY = "#1B2A41";
+    const TERRACOTTA = "#8A4C29";
+
+    // Each variable defines the weather bands to average sales across.
+    const VARIABLES = {
+      temperature: {
+        data: temperatureData,
+        finding: "No real pattern: temperature barely moves sales.",
+        highlight: false,
+        bands: [
+          { label: "Cool", sub: "below 70°F", test: (x) => x < 70 },
+          { label: "Mild", sub: "70–78°F", test: (x) => x >= 70 && x < 78 },
+          { label: "Hot", sub: "78°F +", test: (x) => x >= 78 },
+        ],
+      },
+      humidity: {
+        data: humidityData,
+        finding: "Clear pattern: sales drop as humidity rises.",
+        highlight: true,
+        bands: [
+          { label: "Comfortable", sub: "below 60%", test: (x) => x < 60 },
+          { label: "Humid", sub: "60–78%", test: (x) => x >= 60 && x < 78 },
+          { label: "Muggy", sub: "78% +", test: (x) => x >= 78 },
+        ],
+      },
+      rainfall: {
+        data: rainfallData,
+        finding: "Clear pattern: sales drop sharply once rain starts.",
+        highlight: true,
+        bands: [
+          { label: "Dry", sub: "no rain", test: (x) => x < 0.01 },
+          { label: "Light rain", sub: "under 0.1 in", test: (x) => x >= 0.01 && x < 0.1 },
+          { label: "Steady rain", sub: "0.1 in +", test: (x) => x >= 0.1 },
+        ],
+      },
+    };
+
+    // Average lobster rolls sold across the days that fall in each band.
+    function bandAverages(v) {
+      return v.bands.map((b) => {
+        const ys = v.data.filter(([x]) => b.test(x)).map(([, y]) => y);
+        const avg = ys.length ? Math.round(ys.reduce((a, y) => a + y, 0) / ys.length) : 0;
+        return { label: b.label, sub: b.sub, avg, n: ys.length };
+      });
+    }
+
+    // Draws the value on top of each bar.
+    const valueLabels = {
+      id: "valueLabels",
+      afterDatasetsDraw(c) {
+        const { ctx } = c;
+        const meta = c.getDatasetMeta(0);
+        ctx.save();
+        ctx.font = "600 13px Manrope, sans-serif";
+        ctx.fillStyle = NAVY;
+        ctx.textAlign = "center";
+        meta.data.forEach((bar, i) => {
+          const val = c.data.datasets[0].data[i];
+          if (val != null) ctx.fillText(val, bar.x, bar.y - 8);
+        });
+        ctx.restore();
+      },
+    };
+
+    const ctx = document.getElementById("heroChart");
+    let current = "humidity";
+
+    function barColors(v, rows) {
+      if (!v.highlight) return rows.map(() => STEEL);
+      const min = Math.min(...rows.map((r) => r.avg));
+      return rows.map((r) => (r.avg === min ? TERRACOTTA : STEEL));
+    }
+
+    const chart = new Chart(ctx, {
+      type: "bar",
+      plugins: [valueLabels],
+      data: { labels: [], datasets: [{ data: [], borderWidth: 0, borderRadius: 4, maxBarThickness: 84 }] },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: { padding: { top: 18 } },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: (items) => VARIABLES[current].bands[items[0].dataIndex].label,
+              label: (item) => {
+                const row = bandAverages(VARIABLES[current])[item.dataIndex];
+                return `${row.avg} lobster rolls/day  ·  avg of ${row.n} days`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { color: NAVY, font: { family: "Manrope", size: 12 } },
+          },
+          y: {
+            beginAtZero: true,
+            max: 420,
+            title: { display: true, text: "Lobster rolls sold per day", color: NAVY, font: { family: "Manrope", size: 11 } },
+            grid: { color: "rgba(27,42,65,0.08)" },
+            ticks: { color: "#6B655B", font: { family: "Manrope", size: 10 } },
+          },
+        },
+      },
+    });
+
+    const findingEl = document.getElementById("chartFinding");
+
+    function render(key) {
+      current = key;
+      const v = VARIABLES[key];
+      const rows = bandAverages(v);
+      chart.data.labels = rows.map((r) => r.label);
+      chart.data.datasets[0].data = rows.map((r) => r.avg);
+      chart.data.datasets[0].backgroundColor = barColors(v, rows);
+      chart.update();
+      findingEl.textContent = v.finding;
+
+      document.querySelectorAll(".toggle").forEach((btn) => {
+        btn.classList.toggle("is-active", btn.dataset.key === key);
+      });
+    }
+
+    document.querySelectorAll(".toggle").forEach((btn) => {
+      btn.addEventListener("click", () => render(btn.dataset.key));
+    });
+
+    render(current);
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Minh Anh Nguyen</title>
+  <meta name="description" content="A full index of Minh Anh Nguyen's analytics, database, app, and research projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="projects.html">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Projects</p>
+  </div>
+
+  <div class="wrap page-head">
+    <h1>Projects</h1>
+    <p>Client work, research, and things built to solve a specific problem — filterable by the kind of work involved.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="toggle is-active" data-filter="all" type="button">All</button>
+      <button class="toggle" data-filter="predictive" type="button">Predictive analytics</button>
+      <button class="toggle" data-filter="database" type="button">Databases &amp; SQL</button>
+      <button class="toggle" data-filter="app" type="button">Apps &amp; web</button>
+      <button class="toggle" data-filter="research" type="button">Research</button>
+    </div>
+  </div>
+
+  <div class="wrap project-list" id="projectList">
+
+    <a class="project-row" href="projects/weather-sales.html" data-cat="predictive">
+      <h2 class="project-row__title">Weather-Sales Prediction</h2>
+      <p class="project-row__meta">Predictive analytics · Client work</p>
+      <p class="project-row__desc">A regression model that found rain and humidity — not temperature — drive lobster roll demand at a four-location seafood restaurant. Adopted into the client's ordering system.</p>
+    </a>
+
+    <a class="project-row" href="projects/datagen.html" data-cat="app database">
+      <h2 class="project-row__title">Synthetic Data Generator</h2>
+      <p class="project-row__meta">Tooling · Built &amp; reviewed with AI</p>
+      <p class="project-row__desc">A generator for realistic application test data, built and critically reviewed with Claude Code.</p>
+    </a>
+
+    <div class="project-row" data-cat="research">
+      <h2 class="project-row__title">AI &amp; human decision-making</h2>
+      <p class="project-row__meta">Research · USF Behavioral AI Lab</p>
+      <p class="project-row__desc">Experimental research on how AI systems subtly influence the decisions people make. Case study coming soon.</p>
+    </div>
+
+    <div class="project-row" data-cat="predictive">
+      <h2 class="project-row__title">Customer Churn Prediction</h2>
+      <p class="project-row__meta">Predictive analytics</p>
+      <p class="project-row__desc">Modeling which customers are likely to leave, and why. Case study coming soon.</p>
+    </div>
+
+    <div class="project-row" data-cat="database">
+      <h2 class="project-row__title">Hospital Database</h2>
+      <p class="project-row__meta">Databases &amp; SQL</p>
+      <p class="project-row__desc">Schema design and querying for a hospital records system. Case study coming soon.</p>
+    </div>
+
+    <div class="project-row" data-cat="app">
+      <h2 class="project-row__title">Expense Tracker</h2>
+      <p class="project-row__meta">Apps &amp; web</p>
+      <p class="project-row__desc">A tool for logging and categorizing personal spending. Case study coming soon.</p>
+    </div>
+
+    <div class="project-row" data-cat="app">
+      <h2 class="project-row__title">Mochi Room</h2>
+      <p class="project-row__meta">Apps &amp; web</p>
+      <p class="project-row__desc">Case study coming soon.</p>
+    </div>
+
+    <div class="project-row" data-cat="database">
+      <h2 class="project-row__title">Power BI &amp; SQL reporting</h2>
+      <p class="project-row__meta">Databases &amp; SQL · Dashboards</p>
+      <p class="project-row__desc">Reporting and dashboard work in Power BI backed by SQL. Case study coming soon.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:nguyenminhanh2307@gmail.com">nguyenminhanh2307@gmail.com</a> · <a href="resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const rows = document.querySelectorAll(".project-row");
+    document.querySelectorAll(".filters .toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const f = btn.dataset.filter;
+        document.querySelectorAll(".filters .toggle").forEach((b) => b.classList.toggle("is-active", b === btn));
+        rows.forEach((row) => {
+          const cats = (row.dataset.cat || "").split(" ");
+          row.classList.toggle("is-hidden", f !== "all" && !cats.includes(f));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather-Sales Prediction — Minh Anh Nguyen</title>
+  <meta name="description" content="A regression model that found rain and humidity, not temperature, drive lobster roll demand — and was adopted into the client's ordering system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Weather-Sales Prediction</p>
+  </div>
+
+  <div class="wrap case">
+    <h1 class="case__title">Weather-Sales Prediction</h1>
+    <p class="case__context">Predictive analytics · Client work · Coastal Maine restaurant</p>
+    <p class="case__confidential">Client name withheld for confidentiality.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>4 locations</strong>
+        <span>Multi-site restaurant business</span>
+      </div>
+      <div class="stat">
+        <strong>Client-adopted</strong>
+        <span>Model integrated into their ordering system</span>
+      </div>
+      <div class="stat">
+        <strong>Rain + humidity</strong>
+        <span>Not temperature — the real drivers of demand</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>The problem</h2>
+    <p>
+      A four-location seafood restaurant, with two outdoor summer locations, was ordering its bestselling
+      item — lobster rolls — on gut instinct. On days they misjudged, unsold inventory went to waste; the
+      team suspected weather played a role but had no way to test it or plan around it.
+    </p>
+
+    <h2>What I did</h2>
+    <p>
+      Pulled sales data from the restaurant's Square POS system, merged it with external weather data, and
+      cleaned and aligned both by date. Built a regression model in R testing sales against day of week,
+      time, temperature, humidity, and rainfall — using Claude to speed up feature testing, then
+      independently verifying the rain/humidity finding against the raw data before presenting it to the
+      client.
+    </p>
+
+    <h2>What I found</h2>
+    <p>
+      The pattern nobody expected: temperature barely moved the needle. Rain and humidity were the real
+      predictors of a slow day. That insight reframed how the client thought about their own business — it
+      wasn't "bad weather" broadly, it was specific, measurable conditions.
+    </p>
+    <p class="callout">
+      It wasn't "bad weather" that hurt sales — it was humidity and rain specifically, and temperature
+      not at all.
+    </p>
+
+    <h2>What it demonstrates</h2>
+    <p>
+      <!-- DRAFT — to refine with Minh Anh before finalizing (see brief item 2). -->
+      Finding the signal a business had missed in data it already owned, checking it against the raw
+      numbers rather than taking the model's word for it, and being trusted enough to have it built into
+      how the business actually runs.
+    </p>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:nguyenminhanh2307@gmail.com">nguyenminhanh2307@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
