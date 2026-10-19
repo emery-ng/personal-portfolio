@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Database and Analytics: PostgreSQL to Tableau — Minh Anh Nguyen</title>
+  <meta name="description" content="Designing a hospital database in PostgreSQL from a business narrative, then analyzing a generated dataset in a Tableau dashboard of appointments, revenue, and no-shows.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Hospital Database and Analytics: PostgreSQL to Tableau</p>
+  </div>
+
+  <div class="wrap case">
+    <h1 class="case__title">Hospital Database and Analytics: PostgreSQL to Tableau</h1>
+    <p class="case__context">Database design · SQL · Tableau · Course project</p>
+    <p class="case__note">
+      Phase 1 (schema design and build) is my own work. For Phase 2, the course provided a reference schema and a
+      data generator, and I loaded the data and built the dashboard and analysis.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div>
+        <strong>8 tables</strong>
+        <span>Normalized schema with an insurance table and a diagnosis link table</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <strong>6 charts, 4 KPIs</strong>
+        <span>One Tableau dashboard on appointments, revenue, and no-shows</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/></svg></div>
+        <strong>Synthetic data</strong>
+        <span>A fictional hospital; no real patients</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>The problem</h2>
+    <p>
+      Sunrise General Hospital is a fictional hospital from a course scenario. It needs trustworthy data to optimize
+      staffing and reduce cost. The task was to turn a business narrative into a database, then use the data to show
+      where appointments and revenue come from and where time is lost.
+    </p>
+
+    <h2>What I did</h2>
+    <ul class="case__list">
+      <li>
+        <strong>Designed the schema:</strong> Turned the narrative into an ERD with cardinalities and modality,
+        then into a normalized PostgreSQL schema of 8 tables.
+      </li>
+      <li>
+        <strong>Enforced data quality in the database:</strong> Wrote constraints for appointment status, patient
+        sex, non-negative charges, and a rule that the amount paid can never exceed the total charge. Each
+        appointment has at most one bill.
+      </li>
+      <li>
+        <strong>Tested it:</strong> Seeded a small dataset and ran sanity checks: a row count, a doctor-to-appointment
+        join, and a filter for patients without insurance.
+      </li>
+      <li>
+        <strong>Loaded the full data:</strong> Loaded the course's generated CSV files into PostgreSQL through
+        DBeaver, in foreign key order.
+      </li>
+      <li>
+        <strong>Built the dashboard:</strong> Connected Tableau to the database, joined the tables, and built six
+        charts and four KPI tiles on one dashboard, with highlight and filter actions.
+      </li>
+    </ul>
+
+    <h2>The database</h2>
+    <figure class="schema">
+      <svg viewBox="0 0 680 470" role="img" aria-label="Schema diagram of the hospital database: insurance_plan links to patients; patients, doctor, and department each link to appointment; department links to doctor; appointment links to diagnoses_apt, which links to diagnoses; appointment links to billing_record.">
+        <g stroke="#5E7A8C" stroke-width="1.5" fill="none"><line x1="115" y1="90" x2="115" y2="150"/><line x1="190" y1="185" x2="265" y2="185"/><line x1="340" y1="90" x2="340" y2="150"/><line x1="490" y1="55" x2="415" y2="55"/><polyline points="540,90 540,205 415,205"/><line x1="340" y1="302" x2="340" y2="345"/><line x1="190" y1="380" x2="265" y2="380"/><polyline points="415,262 600,262 600,300"/></g>
+        <g fill="#FFFFFF" stroke="#D4CEC2" stroke-width="1"><rect x="40" y="20" width="150" height="70" rx="8"/><rect x="40" y="150" width="150" height="70" rx="8"/><rect x="265" y="20" width="150" height="70" rx="8"/><rect x="490" y="20" width="150" height="70" rx="8"/><rect x="265" y="150" width="150" height="152" rx="8"/><rect x="265" y="345" width="150" height="90" rx="8"/><rect x="40" y="345" width="150" height="90" rx="8"/><rect x="490" y="300" width="150" height="152" rx="8"/></g>
+        <g font-size="14" fill="#1B2A41"><text class="tt" x="54" y="42">insurance_plan</text><text class="tt" x="54" y="172">patients</text><text class="tt" x="279" y="42">doctor</text><text class="tt" x="504" y="42">department</text><text class="tt" x="279" y="172">appointment</text><text class="tt" x="279" y="367">diagnoses_apt</text><text class="tt" x="54" y="367">diagnoses</text><text class="tt" x="504" y="322">billing_record</text></g>
+        <g font-size="12" fill="#1B2A41" font-weight="500"><text x="54" y="62">insurance_id</text><text x="54" y="192">patient_id</text><text x="279" y="62">doctor_id</text><text x="504" y="62">department_id</text><text x="279" y="194">apt_id</text><text x="279" y="389">diagnoses_apt_id</text><text x="54" y="389">diagnosis_id</text><text x="504" y="344">billing_id</text></g>
+        <g font-size="12" fill="#5E7A8C"><text x="54" y="80">insurance_name</text><text x="54" y="210">insurance_id (optional)</text><text x="279" y="80">department_id</text><text x="504" y="80">name</text><text x="279" y="212">patient_id</text><text x="279" y="230">doctor_id</text><text x="279" y="248">department_id</text><text x="279" y="408">diagnosis_id</text><text x="279" y="426">apt_id</text><text x="54" y="407">descriptions</text><text x="504" y="362">apt_id (unique)</text></g>
+        <g font-size="12" fill="#4A5568"><text x="279" y="266">start_time</text><text x="279" y="284">status, duration_min</text><text x="504" y="380">total_charge</text><text x="504" y="398">amt_paid</text><text x="504" y="416">bill_date</text><text x="504" y="434">payer</text></g>
+        <g font-size="14" fill="#1B2A41" font-weight="500"><text x="123" y="108">1</text><text x="123" y="144">*</text><text x="198" y="179">1</text><text x="250" y="179">*</text><text x="348" y="108">1</text><text x="348" y="144">*</text><text x="478" y="49">1</text><text x="421" y="49">*</text><text x="548" y="108">1</text><text x="421" y="199">*</text><text x="348" y="318">1</text><text x="348" y="338">*</text><text x="198" y="374">1</text><text x="250" y="374">*</text><text x="423" y="256">1</text><text x="608" y="292" font-size="12">0..1</text></g>
+      </svg>
+      <figcaption class="case__caption">Schema diagram: a cleaner redraw of my design, made with Claude for readability. 1 = one, * = many, 0..1 = zero or one. Bold names are primary keys and gray names are other columns.</figcaption>
+    </figure>
+    <div class="case__more">
+      <a href="../images/hospital-erd.png" target="_blank" rel="noopener">See my original ERD, with cardinalities and modality →</a>
+    </div>
+
+    <h3 class="case__subhead">Rules the database enforces</h3>
+    <div class="factors">
+      <ul class="factors__card factors__card--rules">
+        <li class="factor factor--flagged">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span>
+          <span class="factor__name">Domain constraint on <code>appointment.status</code>: Scheduled, Completed, No-Show, Cancelled</span>
+          <span class="factor__pill">CHECK</span>
+        </li>
+        <li class="factor factor--flagged">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span>
+          <span class="factor__name">Domain constraint on <code>patients.sex</code>: F, M, O</span>
+          <span class="factor__pill">CHECK</span>
+        </li>
+        <li class="factor factor--flagged">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span>
+          <span class="factor__name">Non-negative <code>total_charge</code> and <code>amt_paid</code></span>
+          <span class="factor__pill">CHECK</span>
+        </li>
+        <li class="factor factor--flagged">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span>
+          <span class="factor__name">Cross-column rule: <code>amt_paid &lt;= total_charge</code></span>
+          <span class="factor__pill">CHECK</span>
+        </li>
+        <li class="factor factor--passed">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/></svg></span>
+          <span class="factor__name"><code>billing_record.apt_id</code> is a unique foreign key, so each appointment has 0..1 bills</span>
+          <span class="factor__pill">UNIQUE FK</span>
+        </li>
+        <li class="factor factor--passed">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>
+          <span class="factor__name"><code>patients.insurance_id</code> is a nullable foreign key (optional participation)</span>
+          <span class="factor__pill">Nullable FK</span>
+        </li>
+        <li class="factor factor--passed">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>
+          <span class="factor__name"><code>diagnoses_apt</code> resolves the many-to-many between appointments and diagnoses</span>
+          <span class="factor__pill">Junction table</span>
+        </li>
+      </ul>
+    </div>
+
+    <h2>The dashboard</h2>
+    <a class="case__zoom" href="../images/hospital-dashboard.png" target="_blank" rel="noopener"><img src="../images/hospital-dashboard.png" width="1798" height="1429" alt="Tableau dashboard with four KPI tiles and six charts: amount paid by department, appointment volume by department, doctor workload, top diagnoses, no-shows by month, and average visit duration by department."></a>
+    <div class="case__caption">My Tableau dashboard, built on a course-provided dataset. Click to view full size.</div>
+
+    <h2>What the dashboard shows</h2>
+    <ul class="case__list">
+      <li>Orthopedics brings in the most, with an amount paid roughly ten times Oncology's. It also has the most appointments, and Neurology and Oncology have the fewest.</li>
+      <li>Orthopedics has the shortest visits (about 32 minutes) while Neurology and Oncology run longest (about 45 minutes), so the department with the shortest visits earns the most.</li>
+      <li>The most common diagnoses are asthma, fracture, and migraine.</li>
+      <li>At least one appointment is a no-show every month, and some months have three.</li>
+      <li>Doctor workload is uneven: from 1 to 10 appointments per doctor.</li>
+    </ul>
+
+    <h2>What I'd recommend</h2>
+    <ul class="case__list">
+      <li>Add staff or extend hours in the busiest departments, and space appointments better.</li>
+      <li>Cut no-shows with reminders by text or email, confirmation before the visit, and easy rescheduling.</li>
+      <li>Balance doctor workload and review whether Oncology's staffing matches its demand.</li>
+    </ul>
+
+    <h2>Limits</h2>
+    <ul class="case__list">
+      <li>Two rules from the scenario are not enforced by constraints in my schema: that only completed appointments store a duration, and that billing records exist only for completed appointments. My seed data follows them, but the database would not stop a bad row.</li>
+      <li>The full dataset and the Phase 2 schema came from the course, so the findings describe a simulated hospital.</li>
+      <li>The no-show chart shows counts per month, not a rate.</li>
+    </ul>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>PostgreSQL</li>
+      <li>SQL</li>
+      <li>DBeaver</li>
+      <li>Tableau</li>
+    </ul>
+
+    <h2>Technical skills</h2>
+    <ul class="chips">
+      <li>ER modeling</li>
+      <li>Relational schema design</li>
+      <li>Data integrity constraints</li>
+      <li>Dashboard design</li>
+    </ul>
+
+    <h2>Business skills</h2>
+    <ul class="chips">
+      <li>Operational analytics</li>
+      <li>Revenue analysis</li>
+      <li>Business recommendations</li>
+    </ul>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:nguyenminhanh2307@gmail.com">nguyenminhanh2307@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -445,6 +445,9 @@ a.card:hover .card__title { color: var(--steel); }
 
 /* pages without a confidentiality note */
 .case__context + .stats { margin-top: 26px; }
+/* italic note in the page header, under the tags */
+.case .case__note { font-size: 14px; font-style: italic; color: var(--gray); max-width: 68ch; margin: 8px 0 0; }
+.case__note + .stats { margin-top: 26px; }
 
 /* Hero screenshot under the stat boxes */
 .case__figure { margin: -20px 0 44px; }
@@ -554,6 +557,15 @@ a.card:hover .card__title { color: var(--steel); }
 .factor--passed .factor__icon { background: #E3E9EE; color: var(--steel); }
 .factor--little .factor__pill,
 .factor--passed .factor__pill { background: #ECEFF2; color: #3D4A57; }
+.factors__card--rules .factor__name { font-family: var(--sans); font-size: 15px; }
+.factors__card--rules code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  background: var(--bg);
+  border: 0.5px solid #D8D3C9;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
 .factors__caption { font-size: 12px; color: var(--steel); margin-top: 12px; }
 
 .case__body .case__note { font-style: italic; color: var(--gray); }
@@ -581,6 +593,7 @@ a.card:hover .card__title { color: var(--steel); }
 
 /* Inline screenshot that opens full size in a new tab */
 .case__zoom { display: block; }
+.case__caption + .case__zoom { margin-top: 32px; }
 .case__zoom img {
   width: 100%;
   height: auto;
@@ -611,6 +624,11 @@ a.card:hover .card__title { color: var(--steel); }
 .results__table .results__best th,
 .results__table .results__best td { font-weight: 500; }
 
+/* Schema diagram (inline SVG) */
+.schema { margin: 0; }
+.schema svg { display: block; width: 100%; height: auto; }
+.schema .tt { font-family: var(--serif); }
+
 /* Feature importance bars */
 .bars { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; }
 .bar {
@@ -625,8 +643,11 @@ a.card:hover .card__title { color: var(--steel); }
 .bar__value { font-size: 14px; color: var(--navy); text-align: right; }
 .bars__note { font-size: 14px; color: #4A5568; margin-top: 16px; }
 
-.case__notebook { font-size: 14px; color: #4A5568; margin: 0 0 12px; }
-.case__notebook a { color: var(--terracotta); }
+.case__notebook,
+.case__more { font-size: 14px; color: #4A5568; margin: 0 0 12px; }
+.case__notebook a,
+.case__more a { color: var(--terracotta); }
+.case__more { margin-top: 14px; }
 .case__notebook + .stats { margin-top: 14px; }
 
 .case__body .callout {
