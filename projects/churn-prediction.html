@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Churn Prediction in Python — Minh Anh Nguyen</title>
+  <meta name="description" content="Predicting which fitness app users will churn, comparing decision trees and neural networks, and finding that user activity, not subscription tier, signals churn.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Customer Churn Prediction in Python</p>
+  </div>
+
+  <div class="wrap case">
+    <h1 class="case__title">Customer Churn Prediction in Python</h1>
+    <p class="case__context">Machine learning · Decision trees · Neural networks · Course project</p>
+    <div class="case__notebook">
+      <a href="https://colab.research.google.com/drive/1eWVoI1bKc9-JwcHitXIuwhDHcp7WKOSF?usp=sharing" target="_blank" rel="noopener">Full notebook (Google Colab, view only) →</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M13 6h3a2 2 0 0 1 2 2v7.5"/><path d="M11 18H8a2 2 0 0 1-2-2V8.5"/><path d="M15 3.5L12.5 6 15 8.5M9 15.5l2.5 2.5L9 20.5"/></svg></div>
+        <strong>4 models compared</strong>
+        <span>Decision tree and neural network, full and reduced</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M15.5 4.6a3.5 3.5 0 0 1 0 6.8M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg></div>
+        <strong>93% of churners caught</strong>
+        <span>Winning model, tested with 5-fold cross-validation</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <strong>Activity, not plan type</strong>
+        <span>Usage predicted churn; subscription tier added almost nothing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>The problem</h2>
+    <p>
+      Keeping subscribers usually costs less than winning new ones, but only if a team knows who is about to
+      leave. In this dataset of fitness app users, 56% churned. The question was which users are likely to churn,
+      and what behavior gives it away.
+    </p>
+
+    <h2>What I did</h2>
+    <ul class="case__list">
+      <li>
+        <strong>Prepared the data:</strong> Took a 95% random sample (1,900 of 2,000 users), encoded the
+        categories, and scaled the numeric variables.
+      </li>
+      <li>
+        <strong>Compared four models:</strong> A decision tree and a neural network, each with all 8 attributes and
+        a reduced set of four (age, monthly active days, workouts completed, subscription tier), using the course's
+        specified settings. 5-fold cross-validation tested every model on users it hadn't seen.
+      </li>
+      <li>
+        <strong>Checked more than accuracy:</strong> The full neural network scored 100% recall by flagging every
+        user as churn, so I rejected it.
+      </li>
+    </ul>
+
+    <h2>What I found</h2>
+    <p>
+      The reduced decision tree won: 78% accuracy (guessing "everyone churns" gets 56%), 74% precision, 93% recall,
+      and 0.83 AUC. The all-attributes tree scored a similar 0.84 AUC and was slightly better on precision, but the
+      reduced tree is simpler. It caught about 93 of every 100 users who churned, but also flagged about 4 in 10
+      users who stayed.
+    </p>
+
+    <div class="results">
+      <table class="results__table">
+        <caption>Model results, 5-fold cross-validation</caption>
+        <thead>
+          <tr>
+            <th scope="col">Model</th>
+            <th scope="col">Accuracy</th>
+            <th scope="col">Precision</th>
+            <th scope="col">Recall</th>
+            <th scope="col">AUC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="results__best">
+            <th scope="row">Reduced decision tree</th>
+            <td>77.6%</td>
+            <td>73.9%</td>
+            <td>93.5%</td>
+            <td>0.83</td>
+          </tr>
+          <tr>
+            <th scope="row">Full decision tree</th>
+            <td>77.5%</td>
+            <td>75.2%</td>
+            <td>89.6%</td>
+            <td>0.84</td>
+          </tr>
+          <tr>
+            <th scope="row">Full neural network</th>
+            <td>56.3%</td>
+            <td>56.3%</td>
+            <td>100%*</td>
+            <td>0.76</td>
+          </tr>
+          <tr>
+            <th scope="row">Reduced neural network</th>
+            <td>67.7%</td>
+            <td>65.1%</td>
+            <td>96.7%</td>
+            <td>0.65</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="case__caption">*The full neural network flagged every user as churn, so its recall looks perfect but it can't tell users apart.</div>
+
+    <ul class="bars" aria-label="Feature importance in the reduced decision tree">
+      <li class="bar">
+        <span class="bar__label">Monthly active days</span>
+        <span class="bar__track" aria-hidden="true"><span class="bar__fill" style="width: 97%"></span></span>
+        <span class="bar__value">0.97</span>
+      </li>
+      <li class="bar">
+        <span class="bar__label">Workouts completed</span>
+        <span class="bar__track" aria-hidden="true"><span class="bar__fill" style="width: 2%"></span></span>
+        <span class="bar__value">0.02</span>
+      </li>
+      <li class="bar">
+        <span class="bar__label">Age</span>
+        <span class="bar__track" aria-hidden="true"><span class="bar__fill" style="width: 1%"></span></span>
+        <span class="bar__value">0.01</span>
+      </li>
+      <li class="bar">
+        <span class="bar__label">Subscription tier</span>
+        <span class="bar__track" aria-hidden="true"></span>
+        <span class="bar__value">0.00</span>
+      </li>
+    </ul>
+    <div class="bars__note">
+      Monthly active days and workouts completed are strongly correlated (0.81), so the tree credited one and nearly
+      ignored the other. Together they carry almost all of the importance, while age and subscription tier add
+      almost nothing, which contradicted the intuition that Free users would churn more.
+    </div>
+    <div class="case__caption">Feature importance in the reduced decision tree.</div>
+
+    <h2>What I'd recommend</h2>
+    <p>
+      Focus retention on keeping users active: reminders, streak rewards, personalized plans, and early outreach to
+      users whose activity is dropping.
+    </p>
+
+    <h2>Limits</h2>
+    <ul class="case__list">
+      <li>The model shows activity predicts churn, not that raising it prevents it, so an A/B test would be the next step.</li>
+      <li>Active days and workouts completed are strongly correlated (0.81), so the tree's ranking between them shouldn't be over-read.</li>
+      <li>The false alarms mean some retention offers would reach people who didn't need them.</li>
+      <li>This is a course dataset, not a real company's data.</li>
+    </ul>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>Python</li>
+      <li>pandas</li>
+      <li>NumPy</li>
+      <li>scikit-learn</li>
+      <li>Matplotlib</li>
+      <li>Seaborn</li>
+      <li>Google Colab</li>
+    </ul>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:nguyenminhanh2307@gmail.com">nguyenminhanh2307@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

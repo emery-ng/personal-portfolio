@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Synthetic Data Generator — Minh Anh Nguyen</title>
-  <meta name="description" content="A generator for realistic application test data, built and critically reviewed with Claude Code.">
+  <meta name="description" content="A generator built with Claude Code that produces realistic, rule-following business data for demos and scenario testing, validated with 82 rule checks. No real customer data.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
@@ -29,23 +29,138 @@
 
   <div class="wrap case">
     <h1 class="case__title">Synthetic Data Generator</h1>
-    <p class="case__context">Tooling · Built &amp; reviewed with AI</p>
+    <p class="case__context">Internal tool · Demo data · Built with Claude Code</p>
+    <p class="case__confidential">Built for LooplyAI.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/></svg></div>
+        <strong>Synthetic data</strong>
+        <span>No real customer data used</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6l1.5 1.5L8 5M4 12l1.5 1.5L8 11M4 18l1.5 1.5L8 17"/><path d="M11 6h9M11 12h9M11 18h9"/></svg></div>
+        <strong>82 rule checks</strong>
+        <span>77 passed on the first run</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18M4 4v11h16V4"/><path d="M12 15v3M8 21l4-3 4 3"/><path d="M8 11l3-3 2 2 3-3"/></svg></div>
+        <strong>Internal tool</strong>
+        <span>Built for scenario testing and prospect demos</span>
+      </div>
+    </div>
   </div>
 
   <div class="wrap case__body">
+    <h2>The problem</h2>
     <p>
-      A generator for realistic application test data, built and critically reviewed with Claude Code —
-      writing the business-logic rules that make generated records behave like real user and order data,
-      then debugging and validating its output rather than trusting it at face value.
+      Looply is an AI tool that helps small businesses understand their customers and run marketing campaigns.
+      To test how it handles different business scenarios, and to demo campaigns to prospective customers, the
+      team needs realistic business data. Real customer data can't be shown, and randomly generated data doesn't
+      behave like a real business: orders with no customer, totals that don't add up, dates out of order.
     </p>
-    <p class="callout">
-      Full case study in progress — the business-logic detail and outcome are still being written up.
+
+    <h2>What I built</h2>
+    <p>
+      A generator that produces three linked tables (customers, transactions, and products) for a fictional
+      business, following business rules so the records behave like a real business's. Each business is set up
+      through configuration: its size, menu, prices, and customer mix. I ran it to generate complete datasets
+      for two fictional businesses, then audited the output.
     </p>
-    <!--
-      TODO (see brief): needs the actual business-logic complexity (order patterns, user-behavior
-      logic, the rules that made the data "realistic") and the full problem / approach / finding /
-      outcome structure. Do not invent — confirm with Minh Anh first.
-    -->
+
+    <h2>How I built it</h2>
+    <ul class="case__list">
+      <li>
+        <strong>Designed for the demo:</strong> Leadership wanted to demo a campaign to win back customers who
+        had stopped visiting, which needs customers whose visits fade over time. I designed customer types
+        (regulars, occasional visitors, lapsing customers, one-time buyers) with their own visit patterns. The
+        generator currently produces repeat and one-time customers, and adding the lapsing pattern is planned.
+      </li>
+      <li>
+        <strong>Familiar, but not real:</strong> Advisors and prospects need to recognize a business without
+        mistaking it for anyone's real records, so I designed fictional businesses with plausible menus and prices.
+      </li>
+      <li>
+        <strong>Built with AI:</strong> Used Claude Code in VS Code to write the generator from those rules, then
+        tested the output instead of taking it at face value.
+      </li>
+      <li>
+        <strong>Validated it:</strong> Wrote a separate audit script with 82 rule checks across two generated
+        businesses, covering order math, payment totals, links between tables, and customer geography.
+      </li>
+    </ul>
+
+    <h2>What the audit found</h2>
+    <div class="factors">
+      <ul class="factors__card">
+        <li class="factor factor--passed">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+          <span class="factor__name">Order math</span>
+          <span class="factor__pill">Passed</span>
+        </li>
+        <li class="factor factor--passed">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg></span>
+          <span class="factor__name">Payments</span>
+          <span class="factor__pill">Passed</span>
+        </li>
+        <li class="factor factor--passed">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>
+          <span class="factor__name">Links between tables</span>
+          <span class="factor__pill">Passed</span>
+        </li>
+        <li class="factor factor--flagged">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="factor__name">Customer geography</span>
+          <span class="factor__pill">Fixed after audit</span>
+        </li>
+        <li class="factor factor--flagged">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M15.5 4.6a3.5 3.5 0 0 1 0 6.8M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg></span>
+          <span class="factor__name">Repeat customers</span>
+          <span class="factor__pill">Warning added</span>
+        </li>
+      </ul>
+      <div class="factors__caption">Results from the first run of the audit script on two generated businesses. No real customer data.</div>
+    </div>
+
+    <p>77 of 82 checks passed on the first run. The five that failed traced back to three causes:</p>
+    <ul class="case__list">
+      <li>
+        <strong>Missing states:</strong> five states weren't in the phone and ZIP lookups, so those customers got
+        toll-free numbers and New York ZIP codes. Fixed.
+      </li>
+      <li>
+        <strong>Overlapping ranges:</strong> Massachusetts ZIP codes included Rhode Island's range. Fixed.
+      </li>
+      <li>
+        <strong>Impossible setting:</strong> the config asked for 100% repeat customers, but 1,000 orders across
+        600 customers allows at most 400. The generator quietly lowered the target, and now shows a warning.
+      </li>
+    </ul>
+    <p>
+      After the fixes, I re-ran the checks on a fresh sample and the geography rules passed.
+    </p>
+    <p class="case__note">
+      The audit tests the output against the generator's own rules. It doesn't prove the data matches any real
+      business.
+    </p>
+
+    <h2>Business use</h2>
+    <p>
+      Built for Looply to test how its AI performs across business 
+      scenarios and to create campaign demos for prospective customers. 
+      Because the data is synthetic, no real customer data is ever exposed. 
+      Building the data behind Looply’s demos also gave me a close view of
+      how an early-stage company approaches launches, marketing, and 
+      decisions.
+    </p>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>Python</li>
+      <li>Claude Code</li>
+      <li>VS Code</li>
+      <li>OpenAI API</li>
+    </ul>
   </div>
 
   <div class="wrap case-nav">

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather-Sales Prediction — Minh Anh Nguyen</title>
-  <meta name="description" content="A regression model that found rain and humidity, not temperature, drive lobster roll demand — and was adopted into the client's ordering system.">
+  <meta name="description" content="A demand forecasting model that found rain and humidity, not temperature, predict lower lobster roll sales for a coastal Maine restaurant.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
@@ -29,21 +29,24 @@
 
   <div class="wrap case">
     <h1 class="case__title">Weather-Sales Prediction</h1>
-    <p class="case__context">Predictive analytics · Client work · Coastal Maine restaurant</p>
+    <p class="case__context">Demand forecasting · Client work · Coastal Maine restaurant</p>
     <p class="case__confidential">Client name withheld for confidentiality.</p>
 
     <div class="stats">
       <div class="stat">
-        <strong>4 locations</strong>
-        <span>Multi-site restaurant business</span>
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <strong>2 of 4 locations</strong>
+        <span>Outdoor sites analyzed</span>
       </div>
       <div class="stat">
-        <strong>Client-adopted</strong>
-        <span>Model integrated into their ordering system</span>
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 3 3 7.5z"/><path d="M21 3L10 13.5"/></svg></div>
+        <strong>Delivered to client</strong>
+        <span>Evaluating rollout across all 4 locations</span>
       </div>
       <div class="stat">
-        <strong>Rain + humidity</strong>
-        <span>Not temperature — the real drivers of demand</span>
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></div>
+        <strong>Key finding</strong>
+        <span>Rain and humidity, not heat or cold, predicted lower sales</span>
       </div>
     </div>
   </div>
@@ -51,38 +54,105 @@
   <div class="wrap case__body">
     <h2>The problem</h2>
     <p>
-      A four-location seafood restaurant, with two outdoor summer locations, was ordering its bestselling
-      item — lobster rolls — on gut instinct. On days they misjudged, unsold inventory went to waste; the
-      team suspected weather played a role but had no way to test it or plan around it.
+      A coastal Maine restaurant with four locations was planning inventory for its bestselling item, lobster
+      rolls, on intuition and past experience. Over-ordering led to excess inventory and food waste, and
+      under-ordering led to stockouts during peak periods. Management suspected weather was affecting demand
+      but had no way to measure it, so I analyzed the two outdoor locations.
     </p>
 
     <h2>What I did</h2>
-    <p>
-      Pulled sales data from the restaurant's Square POS system, merged it with external weather data, and
-      cleaned and aligned both by date. Built a regression model in R testing sales against day of week,
-      time, temperature, humidity, and rainfall — using Claude to speed up feature testing, then
-      independently verifying the rain/humidity finding against the raw data before presenting it to the
-      client.
-    </p>
+    <ul class="case__list">
+      <li>
+        <strong>Built the dataset:</strong> Merged Square POS sales data (2022–2026) with Open-Meteo weather
+        data, grouped each day into three service windows (9AM–2PM, 2PM–5PM, and 5PM–close), and analyzed the
+        restaurant's lobster purchasing records, comparing what was ordered with what was left over, to see how
+        often they over- or under-ordered.
+      </li>
+      <li>
+        <strong>Fit the model in R:</strong> Used negative binomial regression, which suits sales counts that
+        vary more than a standard model allows. Predictors were day of week, service window, temperature,
+        humidity, and rainfall. I also built a second model with interaction terms to cross-check the simpler
+        one.
+      </li>
+      <li>
+        <strong>Validated it:</strong> Tested predictions against held-out 2026 data the model hadn't seen.
+      </li>
+      <li>
+        <strong>Used AI, then verified it:</strong> Claude accelerated feature testing and code, and I checked
+        the key findings against the raw data before presenting anything to the client.
+      </li>
+    </ul>
+
+    <ol class="flow" aria-label="Workflow: collect sales, weather, and purchasing records; prepare by merging them by day and service window; model with negative binomial regression and check against held-out data; deliver an Excel forecast tool for inventory planning.">
+      <li class="flow__step">
+        <span class="flow__num">01</span>
+        <span class="flow__title">Collect</span>
+        <span class="flow__sub">Sales, weather, purchasing records</span>
+        <svg class="flow__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </li>
+      <li class="flow__step">
+        <span class="flow__num">02</span>
+        <span class="flow__title">Prepare</span>
+        <span class="flow__sub">Merged by day, service window</span>
+        <svg class="flow__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </li>
+      <li class="flow__step">
+        <span class="flow__num">03</span>
+        <span class="flow__title">Model and check</span>
+        <span class="flow__sub">Negative binomial, held-out data</span>
+        <svg class="flow__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </li>
+      <li class="flow__step">
+        <span class="flow__num">04</span>
+        <span class="flow__title">Deliver</span>
+        <span class="flow__sub">Excel forecast tool, inventory planning</span>
+      </li>
+    </ol>
 
     <h2>What I found</h2>
     <p>
-      The pattern nobody expected: temperature barely moved the needle. Rain and humidity were the real
-      predictors of a slow day. That insight reframed how the client thought about their own business — it
-      wasn't "bad weather" broadly, it was specific, measurable conditions.
+      Temperature had little effect. Rain and humidity predicted lower sales, and the pattern held at one
+      location but not the other. I converted the simpler model into an Excel forecast tool that pulls the
+      weather forecast, giving the team a way to plan inventory ahead.
     </p>
+    <div class="factors">
+      <ul class="factors__card">
+        <li class="factor factor--lower">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 15a4 4 0 0 1-.6-8A5 5 0 0 1 16 6.5a3.5 3.5 0 0 1 1 8.5z"/><path d="M8 18l-1 2.5M12 18l-1 2.5M16 18l-1 2.5"/></svg></span>
+          <span class="factor__name">Rain</span>
+          <span class="factor__pill">Lower sales</span>
+        </li>
+        <li class="factor factor--lower">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11z"/></svg></span>
+          <span class="factor__name">Humidity</span>
+          <span class="factor__pill">Lower sales</span>
+        </li>
+        <li class="factor factor--little">
+          <span class="factor__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></svg></span>
+          <span class="factor__name">Temperature</span>
+          <span class="factor__pill">Little effect</span>
+        </li>
+      </ul>
+      <div class="factors__caption">Summary of the model's findings, no client data. The pattern held at one of the two locations analyzed.</div>
+    </div>
     <p class="callout">
-      It wasn't "bad weather" that hurt sales — it was humidity and rain specifically, and temperature
-      not at all.
+      It wasn't bad weather in general. It was rain and humidity specifically.
     </p>
 
-    <h2>What it demonstrates</h2>
+    <h2>What it shows</h2>
     <p>
-      <!-- DRAFT — to refine with Minh Anh before finalizing (see brief item 2). -->
-      Finding the signal a business had missed in data it already owned, checking it against the raw
-      numbers rather than taking the model's word for it, and being trusted enough to have it built into
-      how the business actually runs.
+      Identifying what drives demand in data a restaurant already had, and building a forecast to support
+      inventory planning. The client is now evaluating a rollout across all four locations.
     </p>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>R</li>
+      <li>Negative binomial regression</li>
+      <li>Square POS data</li>
+      <li>Weather data</li>
+      <li>Excel/VBA</li>
+    </ul>
   </div>
 
   <div class="wrap case-nav">
