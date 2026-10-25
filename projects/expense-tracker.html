@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Expense Tracker — Minh Anh Nguyen</title>
+  <meta name="description" content="A phone app that shows students where their money goes, with weekly and monthly totals by category. Built with React Native and SQLite.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Student Expense Tracker</p>
+  </div>
+
+  <div class="wrap case">
+    <h1 class="case__title">Student Expense Tracker</h1>
+    <p class="case__tagline">Log it in a few taps. See where your money goes.</p>
+    <p class="case__context">Mobile app · React Native · SQLite · Course project</p>
+    <p class="case__note">Tested on an iPhone with Expo Go. The screenshots show my own test entries.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div>
+        <strong>Add, edit, delete</strong>
+        <span>Full control of every entry</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg></div>
+        <strong>3 views</strong>
+        <span>All, this week, and this month, each with totals</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div>
+        <strong>Works offline</strong>
+        <span>Saved on your phone, no account or server</span>
+      </div>
+    </div>
+
+    <div class="shots">
+      <figure class="shot">
+        <a href="../images/app-all.png" target="_blank" rel="noopener"><img src="../images/app-all.png" width="1178" height="2242" alt="Expense tracker app showing the add-expense form, a total, and spending by category."></a>
+        <figcaption class="case__caption">All expenses and totals</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="../images/app-week.png" target="_blank" rel="noopener"><img src="../images/app-week.png" width="1178" height="2242" alt="Expense tracker app filtered to this week, showing the total, category breakdown, and two entries."></a>
+        <figcaption class="case__caption">This week</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="../images/app-month.png" target="_blank" rel="noopener"><img src="../images/app-month.png" width="1178" height="2242" alt="Expense tracker app filtered to this month, showing the total, category breakdown, and entries."></a>
+        <figcaption class="case__caption">This month</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>Why I built it</h2>
+    <p>
+      Small purchases add up fast, and without a record it's hard to say where the money went. I built this app to
+      make logging them quick, so you can see what you've spent this week or this month, and on what. Knowing where
+      your money goes is the first step to budgeting.
+    </p>
+
+    <h2>What it does</h2>
+    <ul class="case__list">
+      <li><strong>See where your money goes:</strong> Spending is broken down by category, biggest first.</li>
+      <li><strong>Check any period:</strong> Totals for this week, this month, or everything.</li>
+      <li><strong>Log it fast:</strong> Amount and category are all you need, the date fills in as today, and it all happens on one screen.</li>
+      <li><strong>Keep it private:</strong> Everything stays on your phone, with no account, and it works offline.</li>
+    </ul>
+
+    <h2>How it's built</h2>
+    <p>
+      I built it with React Native and Expo, in JavaScript. The data lives in a SQLite database on the phone, and the
+      screen uses React hooks to keep everything in sync.
+    </p>
+    <ul class="case__list">
+      <li>The table is created on first launch, and an older database without a date column is upgraded automatically.</li>
+      <li>Amount and category are checked before saving, and every insert, update, and delete uses a parameterized query, so typed text never runs as SQL.</li>
+      <li>The week and month filters and the category totals are calculated in the app from the saved entries, so they update the moment you add, edit, or delete.</li>
+      <li>Dates are read in local time, so "this week" and "this month" follow your calendar.</li>
+      <li>Edits happen in a pop-up, and a short message confirms each change.</li>
+    </ul>
+    <pre class="case__code"><code>CREATE TABLE IF NOT EXISTS expenses (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  amount REAL NOT NULL,
+  category TEXT NOT NULL,
+  note TEXT,
+  date TEXT NOT NULL
+);
+
+INSERT INTO expenses (amount, category, note, date) VALUES (?, ?, ?, ?);</code></pre>
+    <p class="case__plain">The question marks are placeholders, and the values are passed separately.</p>
+
+    <h2>What's next</h2>
+    <p>Next I'd add monthly budgets, spending charts, recurring expenses, and backup across devices.</p>
+    <div class="case__caption">Limits: invalid input fails silently, deleting doesn't ask first, and amounts are stored as decimals instead of cents. I've only tested it on an iPhone through Expo Go, with no automated tests.</div>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>React Native</li>
+      <li>Expo</li>
+      <li>JavaScript</li>
+      <li>SQLite</li>
+      <li>React hooks</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul class="chips">
+      <li>Mobile app development</li>
+      <li>Local data storage</li>
+      <li>CRUD operations</li>
+      <li>Input validation</li>
+    </ul>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:minhanh.emery@gmail.com">minhanh.emery@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

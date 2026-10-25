@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emery's Currency Converter — Minh Anh Nguyen</title>
+  <meta name="description" content="A travel currency converter that shows what things cost in your own currency, so you can decide before you buy. Built for my own trips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Emery's Currency Converter</p>
+  </div>
+
+  <div class="wrap case">
+    <img class="case__icon" src="../images/converter-icon.png" width="192" height="192" alt="Emery's Currency Converter app icon: a smiling face with a euro badge.">
+    <h1 class="case__title">Emery's Currency Converter</h1>
+    <p class="case__tagline">Know what it costs before you buy.</p>
+    <p class="case__context">Personal project · Built with AI · Installable web app</p>
+    <div class="case__try">
+      <a class="case__cta" href="https://currency-converter-app-six-silk.vercel.app/" target="_blank" rel="noopener">Try it yourself →</a>
+      <div class="case__try-note">To keep it handy, open the link in your phone's browser and add it to your home screen.</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+        <strong>Know before you buy</strong>
+        <span>See a price in your own currency before you decide</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg></div>
+        <strong>8 currencies</strong>
+        <span>USD, EUR, VND, KRW, JPY, SGD, THB, and MNT</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        <strong>Always with you</strong>
+        <span>Add it to your home screen and it opens like an app</span>
+      </div>
+    </div>
+
+    <div class="shots shots--solo">
+      <figure class="shot">
+        <a href="../images/converter-main.png" target="_blank" rel="noopener"><img src="../images/converter-main.png" width="1179" height="1769" alt="Currency converter app converting 100 US dollars to Japanese yen."></a>
+        <figcaption class="case__caption">Convert in one screen</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>Why I built it</h2>
+    <p>
+      I wanted to know what things really cost abroad, so I built a currency converter for my own use. Then I shared it
+      with my family and the people close to me, and they've been using it when they travel abroad. I gave my idea to
+      AI, and it helped me turn what I wish I had into a real app that I use.
+    </p>
+
+    <h2>How it helps you</h2>
+    <ul class="case__list">
+      <li><strong>Quick:</strong> Type a price, pick two currencies, and see the result right away.</li>
+      <li><strong>Shop with confidence:</strong> Know what something really costs before you pay, so you can decide better when you shop abroad.</li>
+      <li><strong>Made for travelers:</strong> It covers eight currencies, with nothing extra to scroll through.</li>
+      <li><strong>Always with you:</strong> It lives on your home screen, one tap away.</li>
+    </ul>
+
+    <h2>How I built it</h2>
+    <p>I gave AI my idea and the list of currencies I needed, and it helped me build the app. Here's what's inside:</p>
+    <ul class="case__list">
+      <li><strong>The screen:</strong> One simple page with an amount box, two currency pickers, a swap button, and the result.</li>
+      <li><strong>The rates:</strong> When you convert, the app asks the ExchangeRate-API for the latest rate, and it saves each rate on your device for an hour so repeat conversions are instant.</li>
+      <li><strong>The small details:</strong> It remembers the last two currencies you picked, and it waits a moment while you type so it isn't fetching on every keystroke.</li>
+      <li><strong>On your phone:</strong> It's a progressive web app, so you can add it to your home screen and it opens like an app.</li>
+      <li><strong>Online:</strong> It's hosted on Vercel, so anyone with the link can use it.</li>
+    </ul>
+    <p class="case__plain">Built with React, Vite, and Tailwind CSS.</p>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>React</li>
+      <li>Vite</li>
+      <li>Tailwind CSS</li>
+      <li>JavaScript</li>
+      <li>ExchangeRate-API</li>
+      <li>PWA</li>
+      <li>Vercel</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul class="chips">
+      <li>Building with AI</li>
+      <li>Product thinking</li>
+      <li>Front-end development</li>
+      <li>API integration</li>
+    </ul>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:minhanh.emery@gmail.com">minhanh.emery@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

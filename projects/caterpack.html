@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaterPack: Invoice In, Packing List Out — Minh Anh Nguyen</title>
+  <meta name="description" content="A tool that turns a catering invoice into a packing list, and flags anything it can't be sure of. Built for a restaurant client.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / CaterPack: Invoice In, Packing List Out</p>
+  </div>
+
+  <div class="wrap case">
+    <h1 class="case__title">CaterPack: Invoice In, Packing List Out</h1>
+    <p class="case__tagline">Is that 82 trays, or 82 guests?</p>
+    <p class="case__context">Client project · Process automation · Built with Claude Code · Python · Streamlit</p>
+    <p class="case__note">Built for a food service client. The screenshots and sample files use made-up data, not the client's invoices or recipes.</p>
+
+    <div class="case__try">
+      <a class="case__cta" href="https://caterpack-app.streamlit.app/" target="_blank" rel="noopener">Try it yourself →</a>
+      <div class="case__try-note">The app needs two files. Download the made-up samples, upload them, and click Generate.</div>
+      <div class="case__downloads">
+        <a href="../downloads/demo_invoice.pdf" download>Sample invoice (PDF)</a>
+        <a href="../downloads/demo_BOM.xlsx" download>Sample recipe sheet (Excel)</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15V4"/><path d="M7.5 8.5L12 4l4.5 4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></div>
+        <strong>Invoice in, list out</strong>
+        <span>Upload a Square invoice and the recipe sheet, get a packing list</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 14.5h.01M12 14.5h.01M16 14.5h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div>
+        <strong>Unit conversion</strong>
+        <span>Dozens, guests, and single items become the right quantities</span>
+      </div>
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.3 4.2L2.8 17.5A2 2 0 0 0 4.5 20.5h15a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4"/><path d="M12 17h.01"/></svg></div>
+        <strong>Exception flags</strong>
+        <span>Unmatched items and unusual quantities are flagged for review</span>
+      </div>
+    </div>
+
+    <div class="shots shots--wide">
+      <figure class="shot">
+        <a href="../images/cp-upload.png" target="_blank" rel="noopener"><img src="../images/cp-upload.png" width="2876" height="1037" alt="CaterPack upload screen with a step for the invoice PDF and a step for the recipe Excel file."></a>
+        <figcaption class="case__caption">Upload the invoice and the recipe sheet</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>The problem</h2>
+    <p>
+      A food service client was building catering packing lists by hand. For every invoice, the team had to work out
+      what each dish needs, multiply it by the quantity ordered, and add the serviceware, all calculated manually. The
+      process was error-prone, and one missed item meant a costly return trip in the catering truck, or a ruined
+      customer event.
+    </p>
+
+    <h2>The need</h2>
+    <p>
+      The client needed packing lists that were accurate every time, and fast enough to produce for every order. The
+      challenge is that an invoice only says how many. Is 82 a count of trays, or of guests? Is 40 a count of rolls when
+      the recipe is built per dozen? The solution had to interpret each quantity correctly, convert units, and flag
+      anything it couldn't resolve for a person to review.
+    </p>
+
+    <h2>The solution</h2>
+    <p>CaterPack turns a Square invoice into a complete packing list in one step. I built it with Claude Code.</p>
+    <ul class="case__list">
+      <li>Reads the invoice and matches each dish to the client's bill of materials (BOM), the recipe and ingredient sheet.</li>
+      <li>Applies business rules to each quantity (per guest, per event, per dozen, per piece, or skip) and converts units, such as 40 single rolls into 3.33 batches of a per-dozen recipe.</li>
+      <li>Outputs separate Food and Serviceware lists, plus a grand total, in one Excel file for the kitchen and management.</li>
+      <li>Rounds countable items up to whole units and marks them, so orders are never short.</li>
+      <li>Flags unmatched items and unusual quantities as exceptions for review, instead of guessing.</li>
+    </ul>
+
+    <h2>The outcome</h2>
+    <p>
+      CaterPack replaces a manual, error-prone process with a one-step, repeatable workflow, and it shows its work: the
+      recipe each dish matched, the quantities that were rounded, and the exceptions it couldn't resolve. It was built
+      and deployed in May and June 2026, with client adoption planned for summer 2027.
+    </p>
+    <div class="results">
+      <table class="results__table results__table--wrap">
+        <caption>Before and after</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">Aspect</span></th>
+            <th scope="col">Before</th>
+            <th scope="col">With CaterPack</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">How the list is made</th>
+            <td>By hand, calculated manually</td>
+            <td>One step, straight from the invoice</td>
+          </tr>
+          <tr>
+            <th scope="row">Accuracy</th>
+            <td>Error-prone, with items easy to miss</td>
+            <td>Rules applied the same way every time, with exceptions flagged</td>
+          </tr>
+          <tr>
+            <th scope="row">The cost of a miss</th>
+            <td>A return trip in the catering truck, or a ruined event</td>
+            <td>Designed to surface gaps before the truck leaves</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="case__plain">Projected impact: hundreds of hours of manual work saved each year, and fewer missed items, return trips, and disrupted events.</p>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>Python</li>
+      <li>pandas</li>
+      <li>Streamlit</li>
+      <li>Excel</li>
+      <li>Square</li>
+      <li>Claude Code</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul class="chips">
+      <li>Process automation</li>
+      <li>Business rules</li>
+      <li>Data matching</li>
+    </ul>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:minhanh.emery@gmail.com">minhanh.emery@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
