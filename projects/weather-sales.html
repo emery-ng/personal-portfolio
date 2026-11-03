@@ -69,13 +69,13 @@
         often they over- or under-ordered.
       </li>
       <li>
+        <strong>Validated it:</strong> Tested predictions against held-out 2026 data the model hadn't seen.
+      </li>
+      <li>
         <strong>Fit the model in R:</strong> Used negative binomial regression, which suits sales counts that
         vary more than a standard model allows. Predictors were day of week, service window, temperature,
         humidity, and rainfall. I also built a second model with interaction terms to cross-check the simpler
         one.
-      </li>
-      <li>
-        <strong>Validated it:</strong> Tested predictions against held-out 2026 data the model hadn't seen.
       </li>
       <li>
         <strong>Used AI, then verified it:</strong> Claude accelerated feature testing and code, and I checked
