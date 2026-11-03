@@ -24,42 +24,50 @@
     </div>
   </nav>
 
-  <!-- Story hero -->
-  <header class="story-hero">
-    <div class="wrap">
-      <h1 class="story-hero__lead">One foodservice client. Two problems.</h1>
-      <div class="story-grid">
-        <article class="story-card">
-          <div class="story-card__strip"><span>Data story</span><span>Lobster rolls</span></div>
-          <div class="story-card__body">
-            <h2 class="story-card__title">How much should we order tomorrow?</h2>
-            <p class="story-card__text">Every food business faces this: order too much and food is wasted, too little and you run out. A foodservice client was deciding on instinct. I tested whether the weather explained their sales, and at one location it did: rain and humidity, not temperature, predicted the slow days. Any business with uncertain demand can use the same approach.</p>
-            <div class="story-card__ticket">
-              <div class="story-card__struck">Temperature: little effect</div>
-              <div><span class="story-card__key">Rain + humidity:</span> <span class="story-card__accent">slower days (one location)</span></div>
-            </div>
-            <a class="story-card__link" href="projects/weather-sales.html">Read the story →</a>
-          </div>
-        </article>
-        <article class="story-card">
-          <div class="story-card__strip"><span>Built story</span><span>CaterPack</span></div>
-          <div class="story-card__body">
-            <h2 class="story-card__title">What does one missing item cost your business?</h2>
-            <p class="story-card__text">For a caterer, it's a trip back in the truck or a ruined event. A foodservice client built its packing lists by hand from invoices, which invites mistakes. I built a tool that writes the list from the invoice and flags anything it isn't sure of. Any business that fills orders from documents can use the same idea.</p>
-            <div class="story-card__ticket">
-              <ul class="story-checklist">
-                <li><span class="story-check is-checked" aria-hidden="true"></span>Item from the invoice</li>
-                <li><span class="story-check is-checked" aria-hidden="true"></span>Item from the invoice</li>
-                <li><span class="story-check" aria-hidden="true"></span>Item from the invoice</li>
-              </ul>
-              <div class="story-card__fine">Example layout, not real data</div>
-            </div>
-            <a class="story-card__link" href="projects/caterpack.html">Read the story →</a>
-          </div>
-        </article>
+  <!-- Hero -->
+  <header class="intro-hero">
+    <div class="wrap intro-grid">
+      <div class="intro-main">
+        <div class="intro-portrait">
+          <img src="images/portrait.jpg" alt="Minh Anh Nguyen" width="96" height="96">
+        </div>
+        <p class="intro-school">
+          <span class="intro-school__name">University of South Florida</span>
+          <span class="intro-school__detail">AI &amp; Business Analytics · Graduating May 2027</span>
+        </p>
+        <h1 class="intro-name">Minh Anh Nguyen</h1>
+        <p class="intro-statement">I use data and AI to figure out what's going on, and to build what comes next.</p>
+        <div class="intro-skills">
+          <a class="intro-skill" href="#skills">
+            <span class="intro-skill__big">Forecasting</span>
+            <span class="intro-skill__caption">Demand and inventory</span>
+          </a>
+          <a class="intro-skill" href="#skills">
+            <span class="intro-skill__big">Python · R · SQL</span>
+            <span class="intro-skill__caption">Data and machine learning</span>
+          </a>
+          <a class="intro-skill" href="#skills">
+            <span class="intro-skill__big">Automation + AI</span>
+            <span class="intro-skill__caption">Streamlit · Claude Code</span>
+          </a>
+        </div>
+        <div class="intro-buttons">
+          <a class="case__cta" href="projects.html">See my projects →</a>
+          <a class="intro-btn-secondary" href="resume.pdf">Résumé</a>
+        </div>
       </div>
-      <div class="cta-row">
-        <a class="case__cta" href="projects.html">See my projects →</a>
+      <div class="intro-stories">
+        <p class="intro-stories__header">Two stories from my client work</p>
+        <a class="intro-story" href="projects/weather-sales.html">
+          <span class="intro-story__label">Demand forecasting · Lobster rolls</span>
+          <span class="intro-story__title">How much should we order tomorrow?</span>
+          <span class="intro-story__flow">Sales + weather → forecast</span>
+        </a>
+        <a class="intro-story" href="projects/caterpack.html">
+          <span class="intro-story__label">Automation · CaterPack</span>
+          <span class="intro-story__title">What does one missing item cost your business?</span>
+          <span class="intro-story__flow">Invoice → rules → packing list</span>
+        </a>
       </div>
     </div>
   </header>
