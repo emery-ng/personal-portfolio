@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Revenue Dashboard in Tableau — Minh Anh Nguyen</title>
+  <meta name="description" content="An interactive Tableau dashboard showing where a food distributor's net revenue comes from. Click a country and the numbers, products, and drinks comparison update.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Manrope:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="wordmark">Minh Anh Nguyen</a>
+      <div class="nav__links">
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Net Revenue Dashboard in Tableau</p>
+  </div>
+
+  <div class="wrap case">
+    <h1 class="case__title">Net Revenue Dashboard in Tableau</h1>
+    <p class="case__tagline">Click a country, and the whole dashboard updates.</p>
+    <p class="case__context">Data visualization · Tableau · Course project</p>
+    <p class="case__note">Course dataset: a fictional food distributor. The screenshots show the interactive dashboard as exported from Tableau.</p>
+
+    <figure class="tab-hero">
+      <a href="../images/Tableau-Dashboard.png" target="_blank" rel="noopener"><img class="tab-img" src="../images/Tableau-Dashboard.png" width="2400" height="1600" alt="Tableau dashboard of net revenue by supplier country and product, with four headline numbers, a map, a product bubble chart, the ten lowest-selling products, and a drinks comparison."></a>
+      <figcaption class="case__caption">The full dataset: $3.12M net revenue at a 24.1% margin across 21,750 orders. Click the image to see it full size.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap case__body">
+    <h2>The question</h2>
+    <p>A food distributor buys 60 products from suppliers in nine countries. Where does its net revenue come from, and which products deserve a closer look?</p>
+
+    <h2>How it works</h2>
+    <p>Clicking a country on the map filters the headline numbers, the product chart, and the drinks comparison to that country. The map's measure and the number of lowest sellers can be changed with controls. Clicking an empty part of the map clears the filter.</p>
+    <figure class="tab-shot">
+      <a href="../images/Dashboard-China-Tableau.png" target="_blank" rel="noopener"><img class="tab-img" src="../images/Dashboard-China-Tableau.png" width="2400" height="1600" alt="The same Tableau dashboard filtered to China, showing 0.39 million dollars of net revenue, a 25.7 percent margin, 1,940 orders, and China's six products."></a>
+      <figcaption class="case__caption">Filtered to China: $0.39M net revenue at a 25.7% margin across 1,940 orders.</figcaption>
+    </figure>
+
+    <h2>What I found</h2>
+    <ul class="case__list">
+      <li>Revenue is concentrated: five of the nine supplier countries bring 79% of net revenue, and the USA alone brings 23.5%.</li>
+      <li>Drinks earn more per order ($199 vs. $138, or 44% more), but it depends on the drink: Coffee earns $506 per order, while the two teas from China earn $45 and $89.</li>
+      <li>The ten lowest sellers bring only 1.7% of gross revenue, so they're worth a review. The data has no costs for stocking a product, so it can't say whether to drop them.</li>
+    </ul>
+    <p class="tab-crosslink"><a href="revenue-dashboard.html">The same dataset, built in Power BI →</a></p>
+
+    <h2>Tools</h2>
+    <ul class="chips">
+      <li>Tableau</li>
+      <li>Parameters</li>
+      <li>Sets</li>
+      <li>Calculated fields</li>
+      <li>Dashboard actions</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul class="chips">
+      <li>Dashboard design</li>
+      <li>Data storytelling</li>
+      <li>Interactive filters</li>
+      <li>KPI design</li>
+    </ul>
+  </div>
+
+  <div class="wrap case-nav">
+    <a href="../projects.html">← All projects</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Minh Anh Nguyen · <a href="mailto:minhanh.emery@gmail.com">minhanh.emery@gmail.com</a> · <a href="../resume.pdf">Resume</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

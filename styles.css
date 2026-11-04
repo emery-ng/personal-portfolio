@@ -137,12 +137,13 @@ section:last-of-type { border-bottom: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Crop tuning: a higher scale (now 1.06) gives a tighter crop on the face.
-     Change the second value of transform-origin (now 38%) to move the focus
-     up (smaller %) or down (larger %). */
-  object-position: 50% 25%;
-  transform: scale(1.06);
-  transform-origin: 50% 38%;
+  /* Crop tuning: the second value of object-position (now 40%) moves the
+     photo's focus up (smaller %) or down (larger %). A higher scale (now 1,
+     no zoom) gives a tighter crop on the face; once scale is above 1, the
+     second value of transform-origin (now 50%) also shifts the zoomed focus. */
+  object-position: 50% 40%;
+  transform: scale(1);
+  transform-origin: 50% 50%;
 }
 .intro-school { margin: 20px 0 0; }
 .intro-school__name {
@@ -230,7 +231,10 @@ section:last-of-type { border-bottom: none; }
   margin: 0;
 }
 .intro-story {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -258,9 +262,65 @@ section:last-of-type { border-bottom: none; }
   margin-top: 6px;
 }
 .intro-story__flow { display: block; font-size: 12px; color: #AEB9C7; margin-top: 8px; }
+.intro-story__text { display: block; min-width: 0; }
+.intro-story__arrow { display: inline-block; flex-shrink: 0; font-size: 20px; color: #E7CDBB; }
+
+.intro-stories__footer {
+  display: block;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.intro-stories__more { font-size: 13px; color: #AEB9C7; text-align: center; margin: 12px 0 0; }
+.intro-stories__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 16px 15px 22px;
+  background: #F4F1EC;
+  color: #1B2A41;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+.intro-stories__btn:hover,
+.intro-stories__btn:focus-visible { background: #E7CDBB; color: #1B2A41; text-decoration: none; }
+.intro-stories__btn:focus-visible { outline: 2px solid #E7CDBB; outline-offset: 3px; }
+.intro-stories__btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #8A4C29;
+  color: #FBF7EC;
+  font-size: 18px;
+  transition: transform 0.18s ease;
+}
 @media (prefers-reduced-motion: no-preference) {
   .intro-story { transition: transform 0.15s ease, border-color 0.15s ease; }
   .intro-story:hover { transform: translateY(-2px); }
+  .intro-story__arrow { transition: transform 0.18s ease; }
+  .intro-story:hover .intro-story__arrow,
+  .intro-story:focus-visible .intro-story__arrow { transform: translateX(4px); }
+  .intro-stories__btn:hover,
+  .intro-stories__btn:focus-visible { transform: translateY(-2px); }
+  .intro-stories__btn-arrow { animation: intro-nudge 2.6s ease-in-out infinite; }
+  .intro-stories__btn:hover .intro-stories__btn-arrow,
+  .intro-stories__btn:focus-visible .intro-stories__btn-arrow { animation: none; transform: translateX(4px); }
+}
+@keyframes intro-nudge {
+  0%, 70%, 100% { transform: translateX(0); }
+  80% { transform: translateX(4px); }
+  90% { transform: translateX(0); }
 }
 @media (max-width: 1080px) {
   /* "Python · R · SQL" stays on one line; smaller size so it fits its column */
@@ -760,6 +820,19 @@ a.card:hover .card__title { color: var(--steel); }
 .auto-compare .auto-result--manual { color: #8A4C29; }
 .auto-compare .auto-result--tool { color: #1B2A41; }
 .auto-compare .auto-note { font-size: 12px; color: #5E7A8C; margin: 10px 0 0; }
+
+/* Tableau dashboard page */
+.tab-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #D4CEC2;
+  border-radius: 14px;
+}
+.tab-hero { margin: 24px 0 0; }
+.tab-shot { margin: 20px 0 0; }
+.case__body .tab-crosslink { font-size: 14px; font-weight: 500; margin: 4px 0 0; }
+.tab-crosslink a { color: #8A4C29; }
 
 /* Schema diagram (inline SVG) */
 .schema { margin: 0; }
