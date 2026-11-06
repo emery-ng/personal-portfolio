@@ -17,9 +17,10 @@
     <div class="nav__inner">
       <a href="index.html" class="wordmark">Minh Anh Nguyen</a>
       <div class="nav__links">
+        <a class="intro-nav-current" href="index.html" aria-current="page">Home</a>
         <a href="projects.html">Projects</a>
         <a href="#about">About</a>
-        <a href="resume.pdf">Resume</a>
+        <a href="resume.pdf">Résumé</a>
       </div>
     </div>
   </nav>
@@ -28,13 +29,15 @@
   <header class="intro-hero">
     <div class="wrap intro-grid">
       <div class="intro-main">
-        <div class="intro-portrait">
-          <img src="images/portrait.jpg" alt="Minh Anh Nguyen" width="96" height="96">
+        <div class="intro-id">
+          <div class="intro-portrait">
+            <img src="images/portrait.jpg" alt="Minh Anh Nguyen" width="96" height="96">
+          </div>
+          <p class="intro-school">
+            <span class="intro-school__name">University of South Florida</span>
+            <span class="intro-school__detail">AI &amp; Business Analytics · Graduating May 2027</span>
+          </p>
         </div>
-        <p class="intro-school">
-          <span class="intro-school__name">University of South Florida</span>
-          <span class="intro-school__detail">AI &amp; Business Analytics · Graduating May 2027</span>
-        </p>
         <h1 class="intro-name">Minh Anh Nguyen</h1>
         <p class="intro-statement">I use data and AI to figure out what's going on, and to build what comes next.</p>
         <div class="intro-skills">
@@ -44,7 +47,7 @@
           </a>
           <a class="intro-skill" href="#skills">
             <span class="intro-skill__big">Python · R · SQL</span>
-            <span class="intro-skill__caption">Data and machine learning</span>
+            <span class="intro-skill__caption">Data and ML</span>
           </a>
           <a class="intro-skill" href="#skills">
             <span class="intro-skill__big">Automation + AI</span>
@@ -53,6 +56,7 @@
         </div>
         <div class="intro-buttons">
           <a class="intro-btn-secondary" href="resume.pdf">Résumé</a>
+          <a class="intro-talk" href="#contact">Let's talk →</a>
         </div>
       </div>
       <div class="intro-stories">
@@ -81,10 +85,36 @@
     </div>
   </header>
 
+  <!-- More work -->
+  <section id="work">
+    <div class="wrap">
+      <h2 class="section-title">Featured work</h2>
+      <ol class="work-list">
+        <li class="work-row">
+          <div class="work-row__main">
+            <p class="work-row__label">Data visualization</p>
+            <h3 class="work-row__title"><a class="work-row__link" href="projects/tableau-dashboard.html">Net Revenue Dashboard in Tableau</a></h3>
+          </div>
+          <p class="work-row__desc">An interactive dashboard of where a food distributor's net revenue comes from.</p>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </li>
+        <li class="work-row">
+          <div class="work-row__main">
+            <p class="work-row__label">Research</p>
+            <h3 class="work-row__title"><a class="work-row__link" href="projects/ai-human-behavior.html">AI &amp; Human Behavior</a></h3>
+          </div>
+          <p class="work-row__desc">Does heavy AI use make it harder to sit with boredom, and does that cost creativity?</p>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </li>
+      </ol>
+      <p class="work-all"><a href="projects.html">See all projects →</a></p>
+    </div>
+  </section>
+
   <!-- Skills -->
   <section id="skills">
     <div class="wrap">
-      <h2 class="skills-heading">What I do, and what I use</h2>
+      <h2 class="section-title">What I do, and what I use</h2>
       <div class="skills-rows">
         <div class="skills-row">
           <div class="skills-row__text">
@@ -101,7 +131,7 @@
         </div>
         <div class="skills-row">
           <div class="skills-row__text">
-            <h3 class="skills-row__title">Statistics &amp; Machine Learning</h3>
+            <h3 class="skills-row__title">Machine Learning &amp Statistics </h3>
             <p class="skills-row__desc">Testing what actually drives the numbers, not just what seems obvious, with regression, kNN, SVM, decision trees, and neural networks.</p>
           </div>
           <div class="skills-row__tools">
@@ -149,7 +179,7 @@
         <div class="skills-row">
           <div class="skills-row__text">
             <h3 class="skills-row__title">AI</h3>
-            <p class="skills-row__desc">Researching how AI influences human decision-making at USF's Behavioral AI Lab, and verifying and debugging AI output instead of trusting it at face value.</p>
+            <p class="skills-row__desc">Research on how AI shapes human behavior and decisions (USF Behavioral AI Lab), and verifying and debugging AI output instead of trusting it at face value.</p>
           </div>
           <div class="skills-row__tools">
             <p class="skills-label">Building</p>
@@ -171,38 +201,23 @@
     </div>
   </section>
 
-  <!-- Built for my own life -->
-  <section id="personal">
-    <div class="wrap">
-      <h2 class="section-title">Built for my own life</h2>
-      <p class="section-lede">I use AI to turn everyday needs into tools that help.</p>
-      <div class="cards">
-        <a class="card" href="projects/currency-converter.html">
-          <h3 class="card__title">Emery's Currency Converter</h3>
-          <p class="card__desc">A travel currency converter that shows what things cost in your own currency, so you can decide before you buy. Built for my own trips.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
 
   <!-- About -->
   <section id="about">
     <div class="wrap about">
       <h2 class="section-title">About me</h2>
       <div class="about__grid">
-        <img class="about__portrait" src="images/portrait.jpg" alt="Portrait of Minh Anh Nguyen" width="200" height="200">
+        <div class="social-col">
+          <img class="about__portrait" src="images/portrait.jpg" alt="Portrait of Minh Anh Nguyen" width="200" height="200">
+          <div class="social-links">
+            <a class="social-link" href="https://www.linkedin.com/in/minhanh-emery/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+            <a class="social-link" href="https://github.com/minhanh-ng" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg></a>
+          </div>
+        </div>
         <div class="about__text">
-          <p>
-            I'm an AI &amp; Business Analytics major at USF's Muma College of Business and a member of the
-            Judy Genshaft Honors College, graduating May 2027. My work sits between the business question and
-            the data — pulling messy records together, testing what really drives an outcome, and building the
-            model, app, or dashboard that puts the answer to use.
-          </p>
-          <p>
-            Outside of client and research work, I lead the marketing team for USF's Data Science Club —
-            managing a team and driving outreach for the organization.
-          </p>
+          <p>Hi, I'm Minh Anh, though most people know me as Emery.</p>
+          <p>I use data and AI to help businesses grow, and I research how AI quietly shapes the way we behave and make decisions. While I'm optimistic about what it can do for our work, I'm also curious about the future we're heading into, where humans and AI live side by side, and about what we should do to make that go well.</p>
+          <p>I value meaningful human connections and people’s well-being. Outside of work, I bring that same interest in people to my travels: I love immersing myself in different cultures around the world.</p>
         </div>
       </div>
     </div>
@@ -215,16 +230,42 @@
         <div class="cta-contact__text">
           <h2 class="cta-contact__title">Give me 10 minutes, and I'll give you 10 new insights of your business through your data.</h2>
           <p class="cta-contact__body"></p>
-          <p class="cta-contact__links">See my <a href="resume.pdf">Resume</a></p>
+          <p class="cta-contact__links">See my <a href="resume.pdf">Résumé</a></p>
         </div>
         <a class="case__cta" href="mailto:minhanh.emery@gmail.com?subject=Hello%20from%20your%20portfolio">Email me →</a>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="foot">
     <div class="wrap">
-      <p>Minh Anh Nguyen · <a href="mailto:minhanh.emery@gmail.com">minhanh.emery@gmail.com</a> · <a href="resume.pdf">Resume</a></p>
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <p class="foot-name">Minh Anh Nguyen</p>
+          <p class="foot-blurb">AI &amp; Business Analytics student at USF. Open to conversations about data, AI, and human behavior.</p>
+          <a class="foot-email" href="mailto:minhanh.emery@gmail.com">minhanh.emery@gmail.com</a>
+        </div>
+        <nav class="foot-col" aria-label="Footer pages">
+          <p class="foot-label">Pages</p>
+          <ul class="foot-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.pdf">Résumé</a></li>
+          </ul>
+        </nav>
+        <div class="foot-col">
+          <p class="foot-label">Elsewhere</p>
+          <ul class="foot-links">
+            <li><a href="https://www.linkedin.com/in/minhanh-emery/" target="_blank" rel="noopener">LinkedIn <span class="foot-ext" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://github.com/minhanh-ng" target="_blank" rel="noopener">GitHub <span class="foot-ext" aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2026 Minh Anh Nguyen</p>
+        <p>Hand-built with HTML &amp; CSS</p>
+      </div>
     </div>
   </footer>
 
