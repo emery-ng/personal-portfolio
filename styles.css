@@ -225,9 +225,6 @@ section:last-of-type { border-bottom: none; }
 .intro-skill__caption { display: block; font-size: 13px; color: #5E7A8C; margin-top: 2px; white-space: nowrap; }
 .intro-skill:focus-visible { outline: 2px solid #1B2A41; outline-offset: 3px; }
 .intro-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 44px; }
-.intro-talk { font-size: 16px; font-weight: 500; color: #8A4C29; text-decoration: none; }
-.intro-talk:hover { color: #8A4C29; text-decoration: underline; }
-.intro-talk:focus-visible { outline: 2px solid #1B2A41; outline-offset: 3px; }
 /* Current page in the nav (home page) */
 .nav__links a.intro-nav-current {
   border-bottom: 2px solid #8A4C29;
