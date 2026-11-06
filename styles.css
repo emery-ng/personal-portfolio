@@ -177,13 +177,13 @@ section:last-of-type { border-bottom: none; }
   color: #1B2A41;
   margin: 20px 0 0;
 }
-/* Nickname in the hero name; scoped to .intro-name so the heading's own styles can't override it */
-.intro-name .name-nick {
-  font-size: 0.6em;
-  font-weight: 400;
-  color: #5E7A8C;
-  margin: 0 0.1em;
-  vertical-align: baseline;
+/* Nickname: looks exactly like the rest of the name (header and footer) */
+.name-nick {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
 }
 @media (min-width: 600px) {
   .intro-name { white-space: nowrap; }
