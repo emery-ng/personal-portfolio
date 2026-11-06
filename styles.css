@@ -171,11 +171,25 @@ section:last-of-type { border-bottom: none; }
 }
 .intro-name {
   font-family: var(--serif);
-  font-size: clamp(34px, 4.6vw, 52px);
+  font-size: clamp(28px, 3.3vw, 42px);
   font-weight: 500;
   line-height: 1.1;
   color: #1B2A41;
   margin: 20px 0 0;
+}
+/* Nickname in the hero name; scoped to .intro-name so the heading's own styles can't override it */
+.intro-name .name-nick {
+  font-size: 0.6em;
+  font-weight: 400;
+  color: #5E7A8C;
+  margin: 0 0.1em;
+  vertical-align: baseline;
+}
+@media (min-width: 600px) {
+  .intro-name { white-space: nowrap; }
+}
+@media (max-width: 599px) {
+  .intro-name { font-size: clamp(26px, 8vw, 34px); }
 }
 .intro-statement {
   font-family: var(--serif);
